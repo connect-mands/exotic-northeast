@@ -11,11 +11,11 @@
 | Setting | Value |
 |---------|--------|
 | Build command | `npm run build` |
-| Publish directory | *(leave empty — Netlify detects Next.js automatically)* |
+| Publish directory | `.next` |
 
 Netlify’s OpenNext adapter provisions serverless functions for App Router API routes, including `POST /api/enquiry`. You do not need a custom `functions` folder.
 
-If Netlify does not auto-detect Next.js, ensure **Framework preset** is **Next.js** and remove any manual publish directory override (`.next` is not used as a static publish root for SSR apps).
+The publish directory must be `.next`. If it is left empty, Netlify uses the repository root, and `@netlify/plugin-nextjs` fails with “publish directory cannot be the same as the base directory.” The plugin still serves the app with server functions; `.next` is not uploaded as a static site. In the Netlify UI, set **Publish directory** to `.next` as well if a saved value there overrides `netlify.toml`.
 
 ## Environment variables
 

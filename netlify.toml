@@ -1,5 +1,8 @@
 [build]
   command = "npm run build"
+  # Must not be the repo root. The Next.js plugin rejects that and then
+  # publishes its own server output from this directory.
+  publish = ".next"
 
 # Netlify auto-configures Next.js via OpenNext — no plugin pin required.
 

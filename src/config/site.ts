@@ -8,12 +8,12 @@ export const siteConfig = {
     width: 145,
     height: 61,
   },
-  phone: "+91 91477 52663",
-  phoneHref: "tel:+919147752663",
-  whatsappHref: "https://wa.me/919147752663",
-  email: "query@exoticyatra.com",
-  emailHref: "mailto:query@exoticyatra.com",
-  enquiryRecipient: "query@exoticyatra.com",
+  phone: "+91 90467 39032",
+  phoneHref: "tel:+919046739032",
+  whatsappHref: "https://wa.me/919046739032",
+  email: "raj@exoticyatra.com",
+  emailHref: "mailto:raj@exoticyatra.com",
+  enquiryRecipient: "raj@exoticyatra.com",
 } as const;
 
 export function buildWhyChooseUs(

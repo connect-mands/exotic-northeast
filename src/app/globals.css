@@ -245,14 +245,14 @@
   opacity: 0.75;
 }
 
-.destination-andaman {
-  --brand-teal: #1a7a9e;
-  --brand-teal-dark: #156682;
+.destination-northeast {
+  --brand-teal: #0f6b4c;
+  --brand-teal-dark: #0c5640;
 }
 
-.destination-kerala {
-  --brand-teal: #1e7d4a;
-  --brand-teal-dark: #18663c;
+.destination-darjeeling {
+  --brand-teal: #1a5f8a;
+  --brand-teal-dark: #14496b;
 }
 
 .about-cta-button {

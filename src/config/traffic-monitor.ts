@@ -12,7 +12,13 @@ function envBool(name: string, fallback: boolean): boolean {
   return raw === "true" || raw === "1" || raw === "yes";
 }
 
-export type CampaignKey = "kerala" | "andaman" | "bhutan" | "other";
+export type CampaignKey =
+  | "northeast"
+  | "darjeeling"
+  | "kerala"
+  | "andaman"
+  | "bhutan"
+  | "other";
 
 export interface CampaignGroup {
   key: Exclude<CampaignKey, "other">;
@@ -22,12 +28,24 @@ export interface CampaignGroup {
 }
 
 export const CAMPAIGN_GROUPS: CampaignGroup[] = [
+  {
+    key: "northeast",
+    label: "North East",
+    patterns: ["northeast", "north-east", "north east", "meghalaya", "shillong", "arunachal"],
+  },
+  {
+    key: "darjeeling",
+    label: "Sikkim & Darjeeling",
+    patterns: ["darjeeling", "sikkim"],
+  },
   { key: "kerala", label: "Kerala", patterns: ["kerala"] },
   { key: "andaman", label: "Andaman", patterns: ["andaman"] },
   { key: "bhutan", label: "Bhutan", patterns: ["bhutan"] },
 ];
 
 export const CAMPAIGN_LABELS: Record<CampaignKey, string> = {
+  northeast: "North East",
+  darjeeling: "Sikkim & Darjeeling",
   kerala: "Kerala",
   andaman: "Andaman",
   bhutan: "Bhutan",

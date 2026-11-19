@@ -6,8 +6,8 @@ Production-ready Next.js 16 landing pages for lead generation, powered by a sing
 
 | Destination | Domain | Config |
 |-------------|--------|--------|
-| Andaman | bookandaman.in | `src/config/destinations/andaman.ts` |
-| Kerala | bookkeralapackage.in | `src/config/destinations/kerala.ts` |
+| North East | booknortheast.com | `src/config/destinations/northeast.ts` |
+| Sikkim & Darjeeling | booksikkim.in | `src/config/destinations/darjeeling.ts` |
 
 ## Stack
 
@@ -25,25 +25,25 @@ Production-ready Next.js 16 landing pages for lead generation, powered by a sing
 ```bash
 npm install
 cp .env.example .env.local
-npm run dev:andaman   # or dev:kerala
+npm run dev:northeast   # or dev:darjeeling
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
 ## Destination switching
 
-1. **Production (recommended):** Deploy the same build to each domain. The active destination is resolved from the `Host` header (`bookandaman.in` → Andaman, `bookkeralapackage.in` → Kerala).
+1. **Production (recommended):** Deploy the same build to each domain. The active destination is resolved from the `Host` header (`booknortheast.com` → North East, `booksikkim.in` → Sikkim & Darjeeling).
 
-2. **Local / preview:** Set `NEXT_PUBLIC_DESTINATION=andaman` or `kerala` in `.env.local`.
+2. **Local / preview:** Set `NEXT_PUBLIC_DESTINATION=northeast` or `darjeeling` in `.env.local`.
 
-3. **Separate builds:** `npm run build:andaman` / `npm run build:kerala`.
+3. **Separate builds:** `npm run build:northeast` / `npm run build:darjeeling`.
 
 ## Customising content
 
 Edit only the destination config files:
 
-- `src/config/destinations/andaman.ts`
-- `src/config/destinations/kerala.ts`
+- `src/config/destinations/northeast.ts`
+- `src/config/destinations/darjeeling.ts`
 
 Shared contact details: `src/config/site.ts`.
 
@@ -55,7 +55,7 @@ Each config controls hero copy, images, SEO, packages, highlights, benefits, and
 - “Maybe Later” or close (X) opens the existing enquiry form after 500ms
 - “Chat on WhatsApp” opens WhatsApp. A refresh starts the same WhatsApp popup flow again
 - Enquiry form still opens immediately from “Plan Your Trip”, package “Get Quote”, and mobile sticky CTAs
-- POST `/api/enquiry` → Resend email to `ENQUIRY_EMAIL` (default: `query@exoticyatra.com`)
+- POST `/api/enquiry` → Resend email to `ENQUIRY_EMAIL` (default: `raj@exoticyatra.com`)
 - WhatsApp number verification is required before an enquiry can be sent
 - The form calls `POST /api/whatsapp/send-otp` and `POST /api/whatsapp/verify-otp`
 - Meta webhook verification stays at `GET/POST /api/webhook`
@@ -95,7 +95,7 @@ See [docs/NETLIFY.md](docs/NETLIFY.md) for full steps.
 **Environment variables:**
 
 - `RESEND_API_KEY` — Resend API key
-- `ENQUIRY_EMAIL` — lead recipient inbox
+- `ENQUIRY_EMAIL` — lead recipient inbox (`raj@exoticyatra.com`)
 - `RESEND_FROM` — verified sender (required in production)
 - `NEXT_PUBLIC_SITE_URL` — optional canonical URL for SEO
 - `WHATSAPP_ACCESS_TOKEN` — permanent Meta Cloud API access token
@@ -104,7 +104,7 @@ See [docs/NETLIFY.md](docs/NETLIFY.md) for full steps.
 - `WHATSAPP_TEMPLATE_NAME` — approved OTP template name
 - `WHATSAPP_TEMPLATE_LANGUAGE` — template language code (default `en_US`)
 - `WHATSAPP_VERIFY_TOKEN` — webhook verify token (`exoticyatra_otp_verify`)
-- `NEXT_PUBLIC_GOOGLE_ADS_SEND_TO` — optional Google Ads conversion ID (Kerala tag is `AW-17728878047`)
+- `NEXT_PUBLIC_GOOGLE_ADS_SEND_TO` — optional Google Ads conversion ID
 
 ## Project structure
 

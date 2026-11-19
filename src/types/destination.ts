@@ -1,4 +1,4 @@
-export type DestinationSlug = "andaman" | "kerala";
+export type DestinationSlug = "northeast" | "darjeeling";
 
 export type PackageAmenity =
   | "flight"

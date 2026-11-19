@@ -13,9 +13,9 @@ export function HeroSection({ destination }: HeroSectionProps) {
         <img
           src={destination.hero.image.src}
           alt={destination.hero.image.alt}
-          className="absolute inset-0 size-full object-cover object-center"
+          className="absolute inset-0 size-full object-cover"
+          style={{ objectPosition: destination.hero.image.position ?? "center" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/20" />
       </div>
 
       <div className="relative mx-auto grid min-h-[600px] max-w-7xl gap-10 px-4 py-10 lg:min-h-[640px] lg:grid-cols-[1fr_auto] lg:items-center lg:gap-8 lg:px-6 lg:py-12">

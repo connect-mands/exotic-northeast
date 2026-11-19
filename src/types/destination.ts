@@ -81,6 +81,8 @@ export interface DestinationConfig {
     image: {
       src: string;
       alt: string;
+      /** CSS object-position, so a wide photo can keep its brightest area in frame */
+      position?: string;
     };
   };
   about: {

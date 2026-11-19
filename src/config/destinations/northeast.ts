@@ -69,7 +69,8 @@ export const northeastConfig: DestinationConfig = {
     formSubtitle: "Plan your North East trip",
     image: {
       src: "/assets/images/northeast/hero.jpg",
-      alt: "Boat on the clear green Umngot River at Dawki, Meghalaya",
+      alt: "Sunlit snow peaks above the North East hills",
+      position: "72% center",
     },
   },
   about: {
@@ -240,7 +241,7 @@ export const northeastConfig: DestinationConfig = {
       ],
       image: {
         src: "/assets/images/northeast/hero.jpg",
-        alt: "Clear river in Meghalaya on the Kaziranga and Shillong circuit",
+        alt: "Sunlit snow peaks on the Kaziranga and Meghalaya circuit",
       },
     }),
   ],

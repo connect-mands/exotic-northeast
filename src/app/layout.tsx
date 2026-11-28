@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Great_Vibes, Playfair_Display } from "next/font/google";
+import { GoogleAdsTag } from "@/components/seo/google-ads-tag";
 import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
@@ -42,6 +43,9 @@ export default function RootLayout({
       className={`${dmSans.variable} ${playfair.variable} ${greatVibes.variable} light h-full`}
       suppressHydrationWarning
     >
+      <head>
+        <GoogleAdsTag />
+      </head>
       <body className="min-h-full font-sans antialiased">
         {children}
         <Toaster richColors position="top-center" />

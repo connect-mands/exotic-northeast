@@ -12,7 +12,7 @@ import {
   User,
   Users,
 } from "lucide-react";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { destinationOptions, destinations } from "@/config/destinations";
 import { Button } from "@/components/ui/button";
@@ -34,6 +34,10 @@ import {
   packagesByDuration,
   uniquePackageDurations,
 } from "@/lib/package-form";
+import {
+  shouldTrackLeadConversion,
+  trackLeadFormConversion,
+} from "@/lib/google-ads-lead";
 import { enquirySchema, type EnquiryFormValues } from "@/lib/validation";
 import { cn } from "@/lib/utils";
 import type { DestinationConfig, DestinationSlug } from "@/types/destination";
@@ -67,6 +71,7 @@ export function EnquiryForm({
   const formId = formIdProp ?? (isHero ? "hero" : "modal");
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const leadConversionFired = useRef(false);
   const [whatsappVerified, setWhatsappVerified] = useState(false);
   const [activeSlug, setActiveSlug] = useState<DestinationSlug>(destination.slug);
 
@@ -148,6 +153,19 @@ export function EnquiryForm({
       const data = (await res.json()) as { message?: string; error?: string };
       if (!res.ok) {
         throw new Error(data.error ?? "Failed to send enquiry");
+      }
+      if (
+        shouldTrackLeadConversion({
+          whatsappVerified,
+          responseOk: true,
+          alreadyFired: leadConversionFired.current,
+        })
+      ) {
+        leadConversionFired.current = true;
+        trackLeadFormConversion({
+          email: values.email,
+          phone: values.mobile,
+        });
       }
       setSubmitted(true);
       onSuccess?.();

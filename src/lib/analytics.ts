@@ -1,4 +1,11 @@
-export const GOOGLE_ADS_ID = "AW-17728878047";
+import { GOOGLE_ADS_ID } from "@/lib/google-ads-lead";
+
+export {
+  GOOGLE_ADS_ID,
+  leadFormConversionSendTo,
+  trackLeadFormConversion,
+  type LeadCustomerData,
+} from "@/lib/google-ads-lead";
 
 declare global {
   interface Window {

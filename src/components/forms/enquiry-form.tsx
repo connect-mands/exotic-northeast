@@ -261,6 +261,8 @@ export function EnquiryForm({
   if (isHero) {
     return (
       <form
+        id={`${formId}-lead-form`}
+        name={`${formId}-lead-form`}
         onSubmit={handleSubmit(onSubmit)}
         className={cn("space-y-3", className)}
         noValidate
@@ -270,7 +272,8 @@ export function EnquiryForm({
         <div className="grid grid-cols-2 gap-3">
           <FormIconField icon={User} variant="hero" error={errors.fullName?.message}>
             <Input
-              id="fullName"
+              id={`${formId}-fullName`}
+              autoComplete="name"
               placeholder="Your Name"
               className={heroInputClass}
               {...register("fullName")}
@@ -278,8 +281,9 @@ export function EnquiryForm({
           </FormIconField>
           <FormIconField icon={Mail} variant="hero" error={errors.email?.message}>
             <Input
-              id="email"
+              id={`${formId}-email`}
               type="email"
+              autoComplete="email"
               placeholder="Email Address (optional)"
               className={heroInputClass}
               {...register("email")}
@@ -301,6 +305,7 @@ export function EnquiryForm({
           <FormIconField icon={MapPin} variant="hero" error={errors.city?.message}>
             <Input
               id={`${formId}-city`}
+              autoComplete="address-level2"
               placeholder="Your City"
               className={heroInputClass}
               {...register("city")}
@@ -447,23 +452,31 @@ export function EnquiryForm({
 
   return (
     <form
+      id={`${formId}-lead-form`}
+      name={`${formId}-lead-form`}
       onSubmit={handleSubmit(onSubmit)}
       className={cn("space-y-3", className)}
       noValidate
     >
       <div className="space-y-1">
-        <Label htmlFor="fullName-modal">Full Name</Label>
-        <Input id="fullName-modal" className="h-10 bg-white" {...register("fullName")} />
+        <Label htmlFor={`${formId}-fullName`}>Full Name</Label>
+        <Input
+          id={`${formId}-fullName`}
+          autoComplete="name"
+          className="h-10 bg-white"
+          {...register("fullName")}
+        />
         {errors.fullName && (
           <p className="text-xs text-red-600">{errors.fullName.message}</p>
         )}
       </div>
 
       <div className="space-y-1">
-        <Label htmlFor="email-modal">Email Address (optional)</Label>
+        <Label htmlFor={`${formId}-email`}>Email Address (optional)</Label>
         <Input
-          id="email-modal"
+          id={`${formId}-email`}
           type="email"
+          autoComplete="email"
           className="h-10 bg-white"
           {...register("email")}
         />
@@ -484,7 +497,12 @@ export function EnquiryForm({
 
       <div className="space-y-1">
         <Label htmlFor={`${formId}-city`}>Your City</Label>
-        <Input id={`${formId}-city`} className="h-10 bg-white" {...register("city")} />
+        <Input
+          id={`${formId}-city`}
+          autoComplete="address-level2"
+          className="h-10 bg-white"
+          {...register("city")}
+        />
         {errors.city && (
           <p className="text-xs text-red-600">{errors.city.message}</p>
         )}

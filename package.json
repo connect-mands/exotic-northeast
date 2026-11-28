@@ -11,7 +11,6 @@
     "build:darjeeling": "cross-env NEXT_PUBLIC_DESTINATION=darjeeling next build",
     "start": "next start",
     "lint": "eslint",
-    "test:ads": "node --experimental-strip-types --test tests/google-ads-lead.test.ts",
     "postinstall": "prisma generate",
     "db:migrate": "prisma migrate deploy"
   },

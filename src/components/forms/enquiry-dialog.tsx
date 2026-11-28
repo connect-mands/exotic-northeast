@@ -15,21 +15,22 @@ export function EnquiryDialog({ destination }: EnquiryDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-h-[92vh] min-w-0 max-w-[calc(100%-2rem)] overflow-visible border-0 bg-transparent p-0 shadow-none sm:min-w-[416px] sm:max-w-[416px]">
+      <DialogContent
+        keepMounted
+        className="max-h-[92vh] min-w-0 max-w-[calc(100%-2rem)] overflow-visible border-0 bg-transparent p-0 shadow-none sm:min-w-[416px] sm:max-w-[416px]"
+      >
         <QuoteFormCard
           subtitle={destination.hero.formSubtitle}
           className="max-h-[90vh] overflow-y-auto"
         >
-          {open ? (
-            <EnquiryForm
-              key={selectedPackageId ?? "popup-default"}
-              formId="popup"
-              destination={destination}
-              defaultPackageId={selectedPackageId}
-              variant="hero"
-              stackPackageDropdowns
-            />
-          ) : null}
+          <EnquiryForm
+            key={selectedPackageId ?? "popup-default"}
+            formId="popup"
+            destination={destination}
+            defaultPackageId={selectedPackageId}
+            variant="hero"
+            stackPackageDropdowns
+          />
         </QuoteFormCard>
       </DialogContent>
     </Dialog>

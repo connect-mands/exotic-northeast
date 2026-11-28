@@ -8,8 +8,8 @@ export const SIKKIM_LEAD_CONVERSION_SEND_TO =
   "AW-17728878047/U6MuCMzM88AdEN_r5IVC";
 
 const LEAD_SEND_TO_BY_HOST: Record<string, string> = {
-  "booknortheast.in": NORTHEAST_LEAD_CONVERSION_SEND_TO,
-  "www.booknortheast.in": NORTHEAST_LEAD_CONVERSION_SEND_TO,
+  "booknortheast.com": NORTHEAST_LEAD_CONVERSION_SEND_TO,
+  "www.booknortheast.com": NORTHEAST_LEAD_CONVERSION_SEND_TO,
   "booksikkim.in": SIKKIM_LEAD_CONVERSION_SEND_TO,
   "www.booksikkim.in": SIKKIM_LEAD_CONVERSION_SEND_TO,
 };

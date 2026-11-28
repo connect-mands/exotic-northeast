@@ -15,11 +15,11 @@ const NORTHEAST = "AW-17728878047/eIW6CJr998AdEN_r5IVC";
 const SIKKIM = "AW-17728878047/U6MuCMzM88AdEN_r5IVC";
 
 describe("hostname to lead conversion label", () => {
-  it("maps booknortheast.in and www to the Northeast label", () => {
+  it("maps booknortheast.com and www to the Northeast label", () => {
     assert.equal(NORTHEAST_LEAD_CONVERSION_SEND_TO, NORTHEAST);
-    assert.equal(leadFormConversionSendTo("booknortheast.in"), NORTHEAST);
-    assert.equal(leadFormConversionSendTo("www.booknortheast.in"), NORTHEAST);
-    assert.equal(leadFormConversionSendTo("BookNortheast.IN"), NORTHEAST);
+    assert.equal(leadFormConversionSendTo("booknortheast.com"), NORTHEAST);
+    assert.equal(leadFormConversionSendTo("www.booknortheast.com"), NORTHEAST);
+    assert.equal(leadFormConversionSendTo("BookNortheast.COM"), NORTHEAST);
   });
 
   it("maps booksikkim.in and www to the Sikkim label", () => {
@@ -33,8 +33,8 @@ describe("hostname to lead conversion label", () => {
       "localhost",
       "127.0.0.1",
       "localhost:3000",
-      "booknortheast.com",
-      "www.booknortheast.com",
+      "booknortheast.in",
+      "www.booknortheast.in",
       "example.com",
       "",
     ]) {
@@ -88,7 +88,7 @@ describe("conversion firing", () => {
     alreadyFired = true;
     const fired = trackLeadFormConversion(
       { email: " Guest@Example.com ", phone: "9147752662" },
-      { host: "www.booknortheast.in", gtag }
+      { host: "www.booknortheast.com", gtag }
     );
 
     assert.equal(fired, true);
@@ -156,7 +156,7 @@ describe("conversion firing", () => {
   });
 
   it("does not send a production conversion on localhost or an unknown host", () => {
-    for (const host of ["localhost", "127.0.0.1", "booknortheast.com", "example.com"]) {
+    for (const host of ["localhost", "127.0.0.1", "booknortheast.in", "example.com"]) {
       const calls: GtagCall[] = [];
       const fired = trackLeadFormConversion(
         { email: "guest@example.com", phone: "9147752662" },
@@ -176,7 +176,7 @@ describe("conversion firing", () => {
     assert.equal(
       trackLeadFormConversion(
         { phone: "9147752662" },
-        { host: "booknortheast.in", gtag: undefined }
+        { host: "booknortheast.com", gtag: undefined }
       ),
       false
     );
